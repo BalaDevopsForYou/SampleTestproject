@@ -1,4 +1,7 @@
-
+trigger:
+  branches:
+    include:
+      - none
 pool:
  name: BalaTeaching
 
