@@ -1,16 +1,7 @@
-parameters:
-  - name: printname
-    type: string
-trigger:
-- master
+
 pool:
  name: BalaTeaching
 
-steps:
-- script: echo Hello, world!
+stages:
+- template: Stages/TestStages/setup.stage.yml
   displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo '${{ parameters.printname }}'
-  displayName: 'Run a multi-line script'
