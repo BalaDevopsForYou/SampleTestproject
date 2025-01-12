@@ -5,5 +5,5 @@ stages:
       name: BalaTeaching
 
     jobs:
-      - template: Jobs/setup-stage.jobs.yml
+      - template: Jobs/setup.jobs.yml
           
