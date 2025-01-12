@@ -1,7 +1,7 @@
 parameters:
   - name: workdirectory
     type: string
-    default: "$(System.DefaultWorkingDirectory)/SampleTestProject/TestProject/TestProject.csproj"
+    default: "$(System.DefaultWorkingDirectory)/TestProject/TestProject.csproj"
 
 
 steps:
