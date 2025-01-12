@@ -1,0 +1,11 @@
+parameters:
+
+
+jobs:
+  - job:
+    displayName: 'Dotnet APP Build Job'
+    steps:
+       - template: Steps/setup.steps.yml
+         parameters:
+          
+    
