@@ -6,6 +6,10 @@ parameters:
 
 steps:
   - checkout: self
+
+  - pwsh: |
+      Write-Host "Default Working Directory: $(System.DefaultWorkingDirectory)"
+    displayName: "Print Default Working Directory"
   
   - pwsh: |
       if (Test-Path "$(workdirectory)") {
