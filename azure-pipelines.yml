@@ -4,4 +4,3 @@ pool:
 
 stages:
 - template: Stages/TestStages/setup.stage.yml
-  displayName: 'Run a one-line script'
