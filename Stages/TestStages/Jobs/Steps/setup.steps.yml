@@ -1,0 +1,19 @@
+Parameters:
+  - name: workdirecotry
+    type: string
+
+
+steps:
+  - checkout: self
+  
+  - pwsh: |
+      Write-Host "Restoring NuGet packages..."
+      dotnet restore MySolution.sln
+
+      Write-Host "Building the solution..."
+      dotnet build MySolution.sln --configuration Release
+
+      Write-Host "Publishing the artifact..."
+      dotnet publish MySolution.sln --configuration Release --output $(Build.ArtifactStagingDirectory)
+    displayName: 'Restore, Build, and Publish'
+      
