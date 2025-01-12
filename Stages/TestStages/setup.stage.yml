@@ -6,5 +6,4 @@ stages:
 
     jobs:
       - template: Jobs/setup-stage.jobs.yml
-        parameters:
           
