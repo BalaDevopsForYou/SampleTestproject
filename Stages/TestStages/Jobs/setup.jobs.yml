@@ -1,11 +1,10 @@
-parameters:
-
 
 jobs:
   - job:
     displayName: 'Dotnet APP Build Job'
+    pool:
+      name: BalaTeaching
     steps:
        - template: Steps/setup.steps.yml
-         parameters:
           
     
