@@ -3,6 +3,7 @@ parameters:
     type: string
     default: "$(System.DefaultWorkingDirectory)/SampleTestProject/TestProject/TestProject.csproj"
 
+
 steps:
   - checkout: self
   
