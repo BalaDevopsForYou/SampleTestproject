@@ -11,8 +11,8 @@ steps:
     displayName: "Print Default Working Directory"
 
   - pwsh: |
-      $projectPath = "$(workdirectory)"
-      
+      $projectPath = "$(System.DefaultWorkingDirectory)/TestProject/TestProject.csproj"
+      write-host $projectPath 
       if (Test-Path $projectPath) {
           Write-Host "Restoring NuGet packages..."
           dotnet restore $projectPath
