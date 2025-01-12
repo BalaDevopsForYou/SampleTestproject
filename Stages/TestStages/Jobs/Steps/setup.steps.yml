@@ -1,19 +1,23 @@
-Parameters:
-  - name: workdirecotry
+parameters:
+  - name: workdirectory
     type: string
-
+    default: "$(System.DefaultWorkingDirectory)/SampleTestProject/TestProject/TestProject.csproj"
 
 steps:
   - checkout: self
   
   - pwsh: |
-      Write-Host "Restoring NuGet packages..."
-      dotnet restore MySolution.sln
+      if (Test-Path "$(workdirectory)") {
+          Write-Host "Restoring NuGet packages..."
+          dotnet restore "$(workdirectory)"
 
-      Write-Host "Building the solution..."
-      dotnet build MySolution.sln --configuration Release
+          Write-Host "Building the solution..."
+          dotnet build "$(workdirectory)" --configuration Release
 
-      Write-Host "Publishing the artifact..."
-      dotnet publish MySolution.sln --configuration Release --output $(Build.ArtifactStagingDirectory)
+          Write-Host "Publishing the artifact..."
+          dotnet publish "$(workdirectory)" --configuration Release --output $(Build.ArtifactStagingDirectory)
+      } else {
+          Write-Error "Project file not found at $(workdirectory)."
+          exit 1
+      }
     displayName: 'Restore, Build, and Publish'
-      
