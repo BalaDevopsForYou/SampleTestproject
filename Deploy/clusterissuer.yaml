@@ -1,0 +1,27 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: zerossl-acme-issuer
+spec:
+  acme:
+    email: balu.pshell@gmail.com
+    server: https://acme.zerossl.com/v2/DV90
+    externalAccountBinding:
+      keyID: Bk98....
+      keySecretRef:
+        name: zero-ssl-eabsecret-bala
+        key: secret
+      keyAlgorithm: RS256
+    privateKeySecretRef:
+      name: zero-ssl-prod
+    solvers:
+    - dns01:
+          azureDNS:
+            clientID: 
+            clientSecretSecretRef:
+              name: azure-dns-secret
+              key: client-secret
+            subscriptionID: 
+            tenantID: 
+            resourceGroupName: mysandbox-arg
+            hostedZoneName: baladevopsforyou.cloud
