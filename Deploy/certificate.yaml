@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mytry-ssl-cert
+spec:
+  secretName: mytry-ssl-cert-tls
+  issuerRef:
+    name: zerossl-acme-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - sample.baladevopsforyou.cloud
