@@ -12,7 +12,7 @@ Create a file named `azure.json` with the following content:
   "useManagedIdentityExtension": true,
   "userAssignedIdentityID": "01234abc-de56-ff78-abc1-234567890def"
 }
-
+```
 ## Step 2: Create Kubernetes Secret
 Use the following command to create a Kubernetes secret named azure-config-file using the azure.json file:
 
