@@ -31,11 +31,34 @@ Add the Bitnami Helm repository to your Helm setup (if not already added):
   ```bash
       helm repo update
   ```
-## Step 5: Install External-DNS Using Helm
+# Step 5: Custom `values.yaml` for External-DNS
+
+- To customize the installation of `external-dns` using Helm, you can create a `values.yaml` file with the following content:
+
+```yaml
+# Custom values.yaml for External-DNS
+
+startProbe:
+  enabled: true
+
+provider: azure
+
+azure:
+  cloud: AzurePublicCloud
+
+domainFilters:
+  - baladevopsforyou.cloud
+
+policy: sync
+
+txtOwnerId: "balacluster"
+```
+
+## Step 6: Install External-DNS Using Helm
 - Install the external-dns chart from the Bitnami repository. Replace <namespace> with your desired Kubernetes namespace (e.g., default, kube-system), and make sure to provide a values.yaml file for configuration:
   ```bash
         helm install external-dns bitnami/external-dns --namespace <namespace> --create-namespace -f values.yaml
-## Step 6: Uninstall the External-DNS Release
+## Step 7: Uninstall the External-DNS Release
 To uninstall the external-dns release, use the following command:
 
 - List all Helm releases:
@@ -46,7 +69,7 @@ To uninstall the external-dns release, use the following command:
     ```bash
         helm uninstall external-dns -n <namespace>
     ```
-Step 7: Remove a Helm Repository
+## Step 8: Remove a Helm Repository
 To remove a repository from Helm, first list your repos and then remove the desired one:
 - List all repositories:
   ```bash
