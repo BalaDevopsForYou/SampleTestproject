@@ -1,0 +1,12 @@
+startProbe:
+  enabled: true
+
+provider: azure
+azure:
+  cloud: AzurePublicCloud
+
+domainFilters:
+  - baladevopsforyou.cloud
+
+policy: sync
+txtOwnerId: "balacluster"
